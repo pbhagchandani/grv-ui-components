@@ -7,11 +7,13 @@
     "start": "ng serve",
     "build": "ng build --prod",
     "test": "ng test",
+    "test-ci": "ng lint && ng test --single-run",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "commit": "git-cz",
     "packagr": "ng-packagr -p ng-package.json",
-    "semantic-release": "semantic-release --branch master --no-ci"
+    "semantic-release": "semantic-release --branch master --no-ci --publish",
+    "corp-release": "corp-semantic-release --pre-commit test-ci --branch master"
   },
   "config": {
     "commitizen": {
@@ -46,6 +48,7 @@
     "@types/node": "~6.0.60",
     "codelyzer": "^4.0.1",
     "commitizen": "^2.9.6",
+    "corp-semantic-release": "^6.4.0",
     "cz-customizable": "^5.2.0",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",
