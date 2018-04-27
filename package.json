@@ -1,6 +1,6 @@
 {
   "name": "grv-ui-components",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -9,8 +9,17 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "commit": "git-cz",
     "packagr": "ng-packagr -p ng-package.json",
     "semantic-release": "semantic-release --branch master --no-ci"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": "config/release/commitMessageConfig.js"
+    }
   },
   "dependencies": {
     "@angular/animations": "^5.2.0",
@@ -36,6 +45,8 @@
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
     "codelyzer": "^4.0.1",
+    "commitizen": "^2.9.6",
+    "cz-customizable": "^5.2.0",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~2.0.0",
