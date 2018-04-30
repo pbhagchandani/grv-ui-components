@@ -1,4 +1,4 @@
-# GrvUiComponents
+# GrvUiComponents Library
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
@@ -6,22 +6,40 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+Steps to build and release:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1) git add <files>
+2) npm run commit : This uses commitizen to create commits angular style.
+3) Once you are happy wth the changes in master branch then execute th below steps
+4) You can run the either of the below steps(a/b/c) to release a new version into GIT/NPM. Each has its own benefits and style of consume the library.
 
-## Build
+##### Publish the entire repo to GIT and NPM. This will publish entire source code to NPM and GIT with version.
+a) npm run semantic-release
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-## Running unit tests
+##### Semantic release to GIT repo only . This will publish entire source code to GIT with version.
+b) npm run corp-release
+This step does everything except publishing to NPM.
+It also executes the linting + unit test cases before publishing to GIT.
+Please refer to https://github.com/leonardoanalista/corp-semantic-release for more options.
+For using this as NPM module 
+Add the module as dependency to your package.json wth the git tag / version.
+ "grv-ui-components": "https://github.com/pbhagchandani/grv-ui-components.git#v1.0.0"
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+##### Publish only the build package and not th entire repo to NPM
+ng-packagr is a node library that can compile and package a TypeScript library to Angular Package Format.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+c) npm run packagr
 
-## Further help
+This step produces the library all compiled into dist folder. 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+This can now be published into NPM as a module.
+npm publish dist
+
+
+
+
+
+
+
